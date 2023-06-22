@@ -5,9 +5,10 @@ class PagesController < ApplicationController
   end
 
   def hello
+    @name = params[:name]
     hi = {
       code: 200,
-      message: 'Hello Beubeu'
+      message: "Hello #{@name}"
     }
     render json: hi
   end
