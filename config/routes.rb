@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   get '/hello(/:name)', to: 'pages#hello', as: 'hello'
   
-  get 'posts/private', to: 'posts#private', as: 'private'
+  get 'posts/privated', to: 'posts#privated', as: 'privated'
 
   resources :posts
 
