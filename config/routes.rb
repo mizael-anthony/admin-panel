@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   get 'posts/privated', to: 'posts#privated', as: 'privated'
 
   resources :posts
+  resources :categories
 
 end
