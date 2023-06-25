@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
-  def privated
+
+  before_action :set_post, only: [:update, :show, :destroy]
+
+  after_action :say_hello, except: [:index]
+
+  def proof
     render json: {
       code: 200,
       message: 'Articles privées'
@@ -8,35 +13,36 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    render json: @post
+    render json: @post, status: :created
   end
 
   def index
     @posts = Post.all
-    render json: @posts
+    render json: @posts, status: :ok
   end
 
   def show
-    @post = get_post(params[:id])
-    render json: @post
+    render json: @post, status: :found
   end
 
   def update
-    @post = get_post(params[:id])
     @post.update(post_params)
-    render json: @post
+    render json: @post, status: :ok
   end
 
   def destroy
-    @post = get_post(params[:id])
     @post.destroy
-    render json: {}
+    render json: {}, status: :no_content
   end
 
   private
 
-  def get_post(id)
-    Post.find(id)
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def say_hello
+    puts "I'm function called after all action"
   end
 
   def post_params
