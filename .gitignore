@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-.states
-assets/external/
-*.db
-*.py[cod]
-.cursorignore
-.venv/
-.vscode/
-.web
-__pycache__/
-venv/
-.idea
-=======
 # Nuxt dev/build outputs
 .output
 .data
@@ -35,4 +22,3 @@ logs
 .env
 .env.*
 !.env.example
->>>>>>> 76489c7 (init: project)
